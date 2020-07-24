@@ -3,22 +3,17 @@ import Modal from 'react-awesome-modal';
 import './App.css';
 
 class Grid extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible : false
-        }
-    }
+    state = { show: false };
 
     openModal() {
         this.setState({
-            visible : true
+            show : true
         });
     }
 
     closeModal() {
         this.setState({
-            visible : false
+            show : false
         });
     }
 
@@ -30,7 +25,7 @@ class Grid extends React.Component {
         <button
             className='square'
             onClick={() => this.openModal()}>
-            <Modal visible={this.state.visible} width="400" height="400" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+            <Modal visible={this.state.show} width="400" height="400" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1 style={{fontFamily: 'Lora'}}>Scan me</h1>
                         <img src={qr} style={ { width:'100%' }}/>
